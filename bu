@@ -1,0 +1,14 @@
+set terminal pngcairo size 1600,600
+set output 'vergleich.png'
+
+set title 'Pfadvergleich (alle Trajektorien in einem Plot)'
+set xlabel 'x [m]'
+set ylabel 'y [m]'
+set grid
+set size ratio -1
+
+# Alle Pfade übereinanderlegen mit Farben & Linientypen
+plot 'amcl_path.txt' using 1:2 with linespoints lc rgb "purple" lt 1 title 'AMCL', \
+     'odom_path.txt' using 1:2 with linespoints lc rgb "blue"   lt 2 title 'Odometrie', \
+     '/home/kian/Downloads/Beispielpfade/giodat.txt' using 1:2 with linespoints lc rgb "orange" lt 3 title 'Giovani-Pfad', \
+     '/home/kian/Downloads/Beispielpfade/acht.dat' using 1:2 with linespoints lc rgb "green"  lt 4 title 'Roh-Daten'

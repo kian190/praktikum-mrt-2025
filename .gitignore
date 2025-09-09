@@ -1,0 +1,17 @@
+
+# Catkin build stuff
+build/
+devel/
+install/
+
+# ROS logs
+log/
+*.log
+
+# Bag files
+*.bag
+
+# Editor / OS trash
+*.swp
+*.swo
+*.DS_Store
