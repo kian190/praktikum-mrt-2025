@@ -50,6 +50,7 @@ int main(int argc, char **argv) {
             phi += w * dt;
 
             double factor = -83; //tuning tha bish
+                                 //git push test (importat message ("me very hungi"))
             vel_msg.left  = vleft * factor;//(vleft*-15);
             vel_msg.right = vright * factor;//(vright*-15);
             vel_msg.id    = 0;
