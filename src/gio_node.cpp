@@ -49,10 +49,9 @@ int main(int argc, char **argv) {
             y   += u * sin(phi) * dt;
             phi += w * dt;
 
-            double factor = -83; //tuning tha bish
-                                 //git push test (importat message ("me very hungi"))
-            vel_msg.left  = vleft * factor;//(vleft*-15);
-            vel_msg.right = vright * factor;//(vright*-15);
+            double factor = -85; //tuning tha bish
+            vel_msg.left  = vleft * factor;
+            vel_msg.right = vright * factor;
             vel_msg.id    = 0;
             vel_pub.publish(vel_msg);
 
@@ -65,7 +64,7 @@ int main(int argc, char **argv) {
             vel_pub.publish(vel_msg);
             ros::spinOnce();
             ros::Duration(0.2).sleep(); 
-            break;// break sollte genug sein
+            break;
         }
         giodat << x << " " << y << " " << std::endl;
         ros::spinOnce();
