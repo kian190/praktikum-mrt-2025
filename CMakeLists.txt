@@ -2,10 +2,6 @@
 cmake_minimum_required(VERSION 3.0.2)
 project(my_first_project)
 
-## C++11 aktivieren, falls du es brauchst
-# add_compile_options(-std=c++11)
-
-## Catkin Abhängigkeiten
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   std_msgs
@@ -16,7 +12,6 @@ find_package(catkin REQUIRED COMPONENTS
 
 catkin_package()
 
-## Include-Verzeichnisse
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}

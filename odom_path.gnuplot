@@ -1,4 +1,3 @@
-# Gnuplot-Skript zum Plotten des Odometrie-Pfads
 set terminal pngcairo size 800,600
 set output 'odom_path.png'
 set title 'Odometrie-Pfad'

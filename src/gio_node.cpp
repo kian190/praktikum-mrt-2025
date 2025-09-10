@@ -44,20 +44,19 @@ int main(int argc, char **argv) {
         if (controller.getNextState(u, w, vleft, vright, 0)) {
             ROS_INFO("u=%f, w=%f, vL=%f, vR=%f", u, w, vleft, vright);
 
-            //"Standart" differential drive modell
-            x   += u * cos(phi) * dt; 
+            x   += u * cos(phi) * dt; //"Standart" differential drive modell
             y   += u * sin(phi) * dt;
             phi += w * dt;
 
-            double factor = -85; //tuning tha bish
+            double factor = -85; //tuning the gain
             vel_msg.left  = vleft * factor;
             vel_msg.right = vright * factor;
             vel_msg.id    = 0;
             vel_pub.publish(vel_msg);
 
-            controller.setPose(x, y, phi);  // <-- neue Pose 
+            controller.setPose(x, y, phi);  //Updating the Position 
         }else{
-            ROS_INFO("Pfad beendet - sende finalen Stop-Befehl");
+            ROS_INFO("Pfad beendet - sende finalen Stop-Befehl");// Stoping the Bot after code Execution
             vel_msg.left = 0;
             vel_msg.right = 0;
             vel_msg.id = 0;
