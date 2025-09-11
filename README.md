@@ -1,4 +1,5 @@
-    << How to start the Projekt >>($ stands for command line commands)
+    << How to start the Projekt >>
+'$' stands for command line commands & every command in a different Terminal
 
 # Start the Robot
  Ping the Bot to see if the connection to the LMS100 happend sucsesfully(Seperate Terminal)
@@ -6,7 +7,7 @@
 $ping 192.168.0.51
 ```
 
-Enter the Catkin Workspace and execute the Volksbot launch file(Seperate Terminal)
+Enter the Catkin Workspace and execute the Volksbot launch file
 ```
 $cd catkin_ws
 $roslaunch volksbot messtechnikpraktikum.launch
