@@ -1,7 +1,8 @@
     << How to start the Projekt >>($ stands for command line commands)
 
 # Start the Robot
-``` Ping the Bot to see if the connection to the LMS100 happend sucsesfully(Seperate Terminal)
+ Ping the Bot to see if the connection to the LMS100 happend sucsesfully(Seperate Terminal)
+```
 $ping 192.168.0.51
 ```
 
@@ -45,5 +46,5 @@ $gnuplot multi.gp
 
 ```Playing the Rosbag for further validation
 $rosparam set use_sim_time true
-$rosbag play --clock nameofbag.bag
+$rosbag play --clock NameOfBag.bag
 ```
