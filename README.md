@@ -1,5 +1,5 @@
     << How to start the Projekt >>
-('$' stands for command line commands & every instruction in a different Terminal)
+('$' stands for the command line) & (every instruction in a different Terminal)
 
 # Start the Robot
  Ping the Bot to see if the connection to the LMS100 happend sucsesfully(Seperate Terminal)
