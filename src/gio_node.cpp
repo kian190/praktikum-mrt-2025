@@ -8,14 +8,14 @@ std::ofstream giodat;
 int main(int argc, char **argv) {
     ros::init(argc, argv, "gio_node");
     ros::NodeHandle nh;
-    ros::Publisher vel_pub = nh.advertise<volksbot::vels>("/Vel", 10);// mit 
+    ros::Publisher vel_pub = nh.advertise<volksbot::vels>("/Vel", 10);
 
     giodat.open("/home/kian/Downloads/Beispielpfade/giodat.txt");
     if (!giodat.is_open()) {
         ROS_ERROR("Konnte odom_path.txt nicht oeffnen!");
         return 1;
     }else if (giodat.is_open()){
-        ROS_INFO("Konnte Connecten G");
+        ROS_INFO("Konnte Verbindung herstellen");
     }
 
     CGioController controller;
