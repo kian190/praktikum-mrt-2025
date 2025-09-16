@@ -1,7 +1,7 @@
-    << How to start the Projekt >>
+# How to start the Projekt >>
 ('$' stands for the command line) & (every instruction in a different Terminal)
 
-# Start the Robot
+## Start the Robot
 Ping the bot to check if the connection to the LMS100 has been established successfully
 ```
 $ping 192.168.0.51
@@ -18,7 +18,7 @@ Enter the Catkin Workspace and execute the Volksbot launch file
  $roslaunch volksbot localjoystick.launch
 ```
 
-# Start AMCL and Plotting
+## Start AMCL and Plotting
 Execute the AMCL launch file
 ```
 $cd catkin_ws/src/volksbot/launch/lehre/
@@ -34,7 +34,7 @@ Start RViz to visualize changes in real time
 $rviz
 ```
 
-# Start the Path tracking Algorithm 
+## Start the Path tracking Algorithm 
 
 Start the Giovanni controller node with a chosen path (in this case acht.dat)
 ```
@@ -46,7 +46,7 @@ Create a rosbag for further testing and validation
  $rosbag record -a
 ```
 
-# After Code Execution
+## After Code Execution
 
 Plot the odometry and the AMCL-supported path with Gnuplot using a launch file (saved in my_first_project as multi.png)
 ```
