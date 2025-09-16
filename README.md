@@ -1,4 +1,4 @@
-# How to start the Projekt 
+# Startup Procedure
 ('$' stands for the command line) & (every instruction in a different Terminal)
 
 ## Start the Robot
