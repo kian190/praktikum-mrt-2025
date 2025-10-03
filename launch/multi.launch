@@ -1,0 +1,9 @@
+<launch>
+  <!-- AMCL Node -->
+  <node pkg="my_first_project" type="amcl_nodeGNU" name="amcl_node" output="screen"
+        args="$(find my_first_project)/pos.dat" />
+
+  <!-- Odometrie Node -->
+  <node pkg="my_first_project" type="odo_nodeGNU" name="odom_node" output="screen"
+        args="$(find my_first_project)/pos.dat" />
+</launch>
