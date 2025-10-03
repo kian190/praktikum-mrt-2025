@@ -64,10 +64,11 @@ $ rosrun my_first_project gio_node --use-amcl
    (--use-amcl switches the controller to AMCL input instead of /odom)
 
 5. Create the plots:
+
 $ gnuplot AvOStacked.gnuplot
    (creates AvOStacked.png, stacked comparison)
+
 $ gnuplot AvOoverlay.gnuplot
    (creates AvOoverlay.png, side-by-side comparison)
 
-Note: The full comparison procedure is in savedPaths/ReadMe.txt and is only referenced here.
-e: The full comparison procedure is in savedPaths/ReadMe.txt and is only referenced here.
+Note: The full comparison procedure is in savedPaths/ReadMe.txt. 
