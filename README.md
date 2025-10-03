@@ -1,60 +1,62 @@
+
 # Startup Procedure
-('$' stands for the command line) & (every instruction in a different Terminal)
+('$' steht für die Shell; jede Anweisung in einem eigenen Terminal)
 
 ## Start the Robot
-Ping the bot to check if the connection to the LMS100 has been established successfully
-```
-$ping 192.168.0.51
-```
+Ping den Bot, um die Verbindung zum LMS100 zu prüfen
+$ ping 192.168.0.51
 
-Enter the Catkin workspace and execute the Volksbot launch file
-```
-$cd catkin_ws
-$roslaunch volksbot messtechnikpraktikum.launch
-```
+Catkin-Workspace öffnen und Volksbot starten
+$ cd ~/catkin_ws
+$ roslaunch volksbot messtechnikpraktikum.launch
 
-Enter the Catkin Workspace and execute the Volksbot launch file
-```
- $roslaunch volksbot localjoystick.launch
-```
+Lokale Joystick-Steuerung starten
+$ roslaunch volksbot localjoystick.launch
 
-## Start AMCL and Plotting
-Execute the AMCL launch file
-```
-$cd catkin_ws/src/volksbot/launch/lehre/
-$roslaunch messtechnikamcl.launch
-```
+## Start AMCL und Plotting
+AMCL starten
+$ cd ~/catkin_ws/src/volksbot/launch/lehre/
+$ roslaunch messtechnikamcl.launch
 
-Launch amcl_nodeGNU and odo_nodeGNU with multi.launch to start recording the .txt files for later plotting
-```
-$roslaunch my_first_project multi.launch
-```
-Start RViz to visualize changes in real time
-```
-$rviz
-```
+amcl_nodeGNU und odo_nodeGNU starten (schreibt amcl_path.txt und odom_path.txt)
+$ roslaunch my_first_project multi.launch
 
-## Start the Path tracking Algorithm 
+RViz öffnen
+$ rviz
 
-Start the Giovanni controller node with a chosen path (in this case acht.dat)
-```
- $rosrun my_first_project gio_node /home/kian/Downloads/Beispielpfade/acht.dat
-```
+## Start the Path tracking Algorithm
+Giovanni-Controller starten (Pfad ist in /src/gio_node.cpp hardcodiert)
+$ rosrun my_first_project gio_node
 
-Create a rosbag for further testing and validation
-```
- $rosbag record -a
-```
+## Optional: Rosbag
+Alle Topics mitschneiden
+$ rosbag record -a
+(-a: all topics)
 
 ## After Code Execution
+Mit Gnuplot plotten (erzeugt multi.png)
+$ gnuplot multi.gp
 
-Plot the odometry and the AMCL-supported path with Gnuplot using a launch file (saved in my_first_project as multi.png)
-```
-$gnuplot multi.gp
-``` 
+Rosbag-Replay
+$ rosparam set use_sim_time true
+(Nodes nutzen Simulationszeit)
 
-Replay the rosbag for further validation
-```
-$rosparam set use_sim_time true
-$rosbag play --clock NameOfBag.bag
-```
+$ rosbag play --clock NameOfBag.bag
+(--clock veröffentlicht /clock während des Replays)
+
+## Kurzprozess: Pfadtracking und Vergleich (Details in savedPaths/ReadMe.txt)
+1. Pfad mit Odometrie-Regler fahren:
+   $ rosrun my_first_project gio_node
+   (ohne Flags; nutzt den im Code hinterlegten Pfad)
+2. amcl_path.txt und odom_path.txt nach savedPaths/ kopieren.
+3. In savedPaths/ umbenennen in:
+   Odomamcl_path.txt und Odomodom_path.txt.
+4. Plot erstellen:
+   $ gnuplot AvOStacked.gnuplot
+   (erzeugt AvOStacked.png, direkter Vergleich)
+   Alternativ:
+   $ gnuplot AvOoverlay.gnuplot
+   (Overlay/Side-by-Side)
+
+Hinweis: Der ausführliche Vergleichsablauf steht in savedPaths/ReadMe.txt und wird hier nur kurz referenziert.
+``
