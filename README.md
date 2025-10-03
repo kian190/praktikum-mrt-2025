@@ -65,10 +65,16 @@ $ rosrun my_first_project gio_node --use-amcl
 
 5. Create the plots:
 
+```
 $ gnuplot AvOStacked.gnuplot
+```
+
    (creates AvOStacked.png, stacked comparison)
 
+```
 $ gnuplot AvOoverlay.gnuplot
+```
+
    (creates AvOoverlay.png, side-by-side comparison)
 
 Note: The full comparison procedure is in savedPaths/ReadMe.txt. 
