@@ -1,4 +1,3 @@
-
 #include <ros/ros.h>
 #include <signal.h>
 #include <nav_msgs/Odometry.h>
@@ -14,19 +13,15 @@ struct State {
     std::ofstream log;
     CGioController gio;
 
-    // Pose & Zeitsync
     double x=0, y=0, yaw=0;
     double t_prev=0, dt=0;
 
-    // Steuerung
     double u=0, w=0, vL=0, vR=0;
     bool looped=false;
 
-    // Offsets
     double ox=0, oy=0;
     bool have_offset=false;
 
-    // eigene Odo
     double gx=0, gy=0, gyaw=0;
 
     const int gain = -60;
@@ -48,7 +43,6 @@ int main(int argc, char** argv) {
         return 1;
     }
 
-    // Pfad laden wie vorher
     const std::string filePath = "/home/kian/Downloads/Beispielpfade/acht.dat";
     if(!S.gio.getPathFromFile(filePath.c_str())){
         ROS_ERROR("Kann Pfaddatei nicht laden: %s", filePath.c_str());
